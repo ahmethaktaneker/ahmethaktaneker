@@ -158,6 +158,7 @@
       transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
       align-self: flex-start;
       cursor: pointer;
+      user-select: none;
     }
 
     .post-box a.read-more:hover {
@@ -178,18 +179,22 @@
 
     @media (max-width: 600px) {
       header h1 {
-        font-size: 1.8rem;
+        font-size: 2rem; /* küçültme azaltıldı */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       nav {
         flex-direction: row;
         justify-content: center;
-        gap: 0.8rem;
-        padding: 0.8rem;
+        gap: 1rem;
+        padding: 1rem 1rem;
         overflow-x: auto;
       }
       nav a {
-        font-size: 1rem;
-        padding: 0.4rem 0.8rem;
+        font-size: 1.1rem; /* küçültme kaldırıldı */
+        padding: 0.5rem 1rem;
+        white-space: nowrap;
       }
       .container {
         padding: 0 1rem;
@@ -207,11 +212,11 @@
     <p>Siyaset, Toplum, Anayasa ve Çözüm Arayışı</p>
   </header>
 
-   <nav>
-  <a href="/">Ana Sayfa</a>
-  <a href="/yazilar/" class="active">Yazılar</a>
-  <a href="/iletisim/">İletişim</a>
- </nav>
+  <nav>
+    <a href="/">Ana Sayfa</a>
+    <a href="/yazilar/" class="active">Yazılar</a>
+    <a href="/iletisim/">İletişim</a>
+  </nav>
 
   <div class="container">
     <h2>Yazılar</h2>
@@ -222,7 +227,7 @@
         <div class="post-meta">12 Temmuz 2025</div>
         <hr class="post-separator" />
         <p class="post-summary">Anayasa krizleri ve FETÖ sonrası dönem üzerine bir analiz.</p>
-        <a href="yeniden-muasir-medeniyetler.pdf" class="read-more" target="_blank">Devamını Oku</a>
+        <a href="yeniden-muasir-medeniyetler.pdf" class="read-more" target="_blank" rel="noopener noreferrer">Devamını Oku</a>
       </div>
     </div>
   </div>
