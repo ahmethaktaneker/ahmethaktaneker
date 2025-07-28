@@ -49,12 +49,21 @@
     font-weight: 700;
     font-size: 1.1rem;
     display: inline-block;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
   }
   nav a:hover {
-    background-color: #ddd;
-    color: #1a1a1a;
-    cursor: pointer;
+    background-color: #c62828;
+    color: white;
+    box-shadow: 0 0 8px rgba(198, 40, 40, 0.7);
+  }
+  nav a.active {
+    color: #c62828;
+    cursor: default;
+    pointer-events: none;
+    border-bottom: 2px solid #c62828;
+    background-color: transparent;
+    box-shadow: none;
   }
   .container {
     max-width: 600px;
@@ -86,7 +95,8 @@
     transition: color 0.3s ease;
   }
   .contact-info a:hover {
-    color: #444;
+    color: #a91f1f;
+    text-decoration: underline;
   }
   footer {
     text-align: center;
@@ -106,8 +116,8 @@
 
 <nav>
   <a href="hakkimda.html">Hakkımda</a>
-  <a href="yazilar.html">Yazılar</a>
-  <a href="iletisim.html">İletişim</a>
+  <a href="yazilar/index.html">Yazılar</a>
+  <a href="iletisim.html" class="active">İletişim</a>
 </nav>
 
 <div class="container">
@@ -118,10 +128,10 @@
         <a href="mailto:ahmethaktaneker@gmail.com">ahmethaktaneker@gmail.com</a>
       </p>
       <p><strong>Instagram:</strong><br>
-        <a href="https://instagram.com/ahmethaktaneker" target="_blank">@ahmethaktaneker</a>
+        <a href="https://instagram.com/ahmethaktaneker" target="_blank" rel="noopener noreferrer">@ahmethaktaneker</a>
       </p>
       <p><strong>LinkedIn:</strong><br>
-        <a href="https://www.linkedin.com/in/ahmet-haktan-eker-928197343" target="_blank">@ahmethaktaneker</a>
+        <a href="https://www.linkedin.com/in/ahmet-haktan-eker-928197343" target="_blank" rel="noopener noreferrer">@ahmethaktaneker</a>
       </p>
     </div>
   </main>
