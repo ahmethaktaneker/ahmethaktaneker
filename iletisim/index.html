@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <title>Ahmet Haktan Eker – İletişim</title>
-<meta name="google-site-verification" content="jR8L2Pb1BRqA6qphF1PW9UvMfdfDRpwE-SX8E5pheWc" />
-<meta name="description" content="Ahmet Haktan Eker iletişim bilgileri." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap" rel="stylesheet" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
 <style>
   body {
     font-family: 'Merriweather', serif;
@@ -23,7 +23,7 @@
   header {
     background-color: #1a1a1a;
     color: white;
-    padding: 2.5rem 1rem;
+    padding: 2.5rem 1rem 1.5rem;
     text-align: center;
     border-bottom: 4px solid #c62828;
   }
@@ -39,7 +39,7 @@
   nav {
     background-color: #1a1a1a;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 1.5rem;
     padding: 1rem 0;
@@ -54,6 +54,7 @@
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    white-space: nowrap;
   }
   nav a:hover {
     background-color: #f5f5f5;
@@ -68,26 +69,34 @@
     background-color: transparent;
     box-shadow: none;
   }
-
   .container {
     max-width: 900px;
     margin: 3rem auto;
     padding: 0 2rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: nowrap;
   }
-  main {
+
+  /* İLETİŞİM KUTUSU - DÜZENLENDİ */
+  main.contact-info-box {
+    flex: 1 1 50%;
     background-color: #f7f7f7;
     padding: 2rem 2.5rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
     border-left: 5px solid #c62828;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: box-shadow 0.3s ease, transform 0.2s ease;
+
+    max-height: 300px; /* Maksimum yükseklik */
+    overflow: hidden; /* taşan kısmı gizle */
   }
-  main:hover {
-    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-    transform: translateY(-4px);
+  main.contact-info-box:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
     background-color: #fafafa;
   }
-  h2 {
+  main.contact-info-box h2 {
     color: #c62828;
     margin-bottom: 1.5rem;
     font-weight: 700;
@@ -99,6 +108,9 @@
   .contact-info p {
     margin: 0.7rem 0;
     font-weight: 500;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
   }
   .contact-info a {
     color: #c62828;
@@ -106,29 +118,167 @@
     font-weight: 600;
     padding: 0.3rem 0.5rem;
     display: inline-block;
+    position: relative;
     transition: color 0.3s ease;
+  }
+  .contact-info a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 0;
+    background-color: #c62828;
+    transition: width 0.3s ease;
+  }
+  .contact-info a:hover::after {
+    width: 100%;
   }
   .contact-info a:hover {
     color: #a91f1f;
   }
 
-  footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    font-size: 0.9rem;
-    color: #777;
-    border-top: 1px solid #ddd;
-    margin-top: auto;
+  /* BANA ULAŞIN FORMU - GENİŞLETİLDİ */
+  section.contact-form {
+    flex: 1 1 auto;
+    flex-grow: 1.3;  /* biraz daha geniş */
+    min-width: 320px;
+    background-color: #f7f7f7;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #c62828;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  section.contact-form:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    background-color: #fafafa;
+  }
+  section.contact-form h2 {
+    margin-bottom: 1.5rem;
+    color: #c62828;
+    border-bottom: 2px solid #c62828;
+    padding-bottom: 0.3rem;
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
     user-select: none;
   }
-
-  @media (max-width: 600px) {
+  .form-group {
+    margin-bottom: 1.3rem;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+    color: #555;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    border: 1.8px solid #c62828;
+    font-size: 1rem;
+    font-family: 'Merriweather', serif;
+    outline: none;
+    background-color: white;
+    color: #1a1a1a;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #a91f1f;
+    box-shadow: 0 0 8px rgba(198, 40, 40, 0.8);
+  }
+  .contact-form button {
+    background-color: #c62828;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    padding: 0.75rem 1.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    user-select: none;
+    box-shadow: 0 6px 15px rgba(198, 40, 40, 0.7);
+  }
+  .contact-form button:hover {
+    box-shadow: 0 3px 8px rgba(139, 26, 26, 0.9);
+    transform: translateY(-3px);
+    background-color: #a91f1f;
+  }
+  .success-message {
+    margin-top: 1rem;
+    background-color: #f0fff0;
+    border-left: 5px solid #4caf50;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    color: #2e7d32;
+    animation: fadeIn 0.4s ease-in-out;
+    user-select: none;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (max-width: 850px) {
     .container {
-      padding: 0 1rem;
+      flex-direction: column;
+      padding: 0 1.5rem;
     }
-    h2 {
-      font-size: 1.5rem;
+    main.contact-info-box,
+    section.contact-form {
+      flex: 1 1 auto;
+      max-width: 100%;
+      margin-bottom: 2rem;
+      max-height: none; /* mobilde kısıt yok */
+      overflow: visible;
     }
+  }
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 1.8rem;
+    }
+    header p {
+      font-size: 1rem;
+    }
+    nav {
+      gap: 1rem;
+      padding: 0.8rem 0;
+    }
+    nav a {
+      font-size: 1rem;
+      padding: 0.35rem 0.7rem;
+    }
+  }
+  a.read-more {
+    display: inline-block;
+    padding: 0.45rem 0.95rem;
+    background-color: #c62828;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    box-shadow: 0 6px 15px rgba(198, 40, 40, 0.7);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+    user-select: none;
+  }
+  a.read-more:hover {
+    background-color: #a91f1f;
+    box-shadow: 0 3px 6px rgba(139, 26, 26, 0.8);
+    transform: translateY(-3px);
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
   }
 </style>
 </head>
@@ -141,12 +291,12 @@
 
 <nav>
   <a href="index.html">Ana Sayfa</a>
-  <a href="yazilar/" >Yazılar</a>
+  <a href="yazilar/">Yazılar</a>
   <a href="iletisim/" class="active">İletişim</a>
 </nav>
 
 <div class="container">
-  <main>
+  <main class="contact-info-box">
     <h2>İletişim</h2>
     <div class="contact-info">
       <p><strong>E-posta:</strong><br />
@@ -160,11 +310,64 @@
       </p>
     </div>
   </main>
+
+  <section class="contact-form">
+    <h2>Bana Ulaşın</h2>
+    <form id="iletisimForm">
+      <div class="form-group">
+        <label for="isim">Adınız Soyadınız</label>
+        <input type="text" id="isim" name="isim" placeholder="Adınızı ve soyadınızı yazınız" required />
+      </div>
+      <div class="form-group">
+        <label for="email">E-posta</label>
+        <input type="email" id="email" name="email" placeholder="E-posta adresiniz" required />
+      </div>
+      <div class="form-group">
+        <label for="konu">Konu</label>
+        <input type="text" id="konu" name="konu" placeholder="Mesajınızın konusu" required />
+      </div>
+      <div class="form-group">
+        <label for="mesaj">Mesajınız</label>
+        <textarea id="mesaj" name="mesaj" rows="6" placeholder="Mesajınızı yazınız..." required></textarea>
+      </div>
+      <button type="submit">Gönder</button>
+      <div class="success-message" style="display:none;">Mesajınız başarıyla gönderildi. Teşekkürler!</div>
+    </form>
+  </section>
 </div>
 
-<footer>
-  &copy; 2025 Ahmet Haktan Eker
-</footer>
+<script>
+  const form = document.getElementById('iletisimForm');
+  const successMessage = form.querySelector('.success-message');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const isim = form.isim.value.trim();
+    const email = form.email.value.trim();
+    const konu = form.konu.value.trim();
+    const mesaj = form.mesaj.value.trim();
+
+    if(!isim || !email || !konu || !mesaj) {
+      alert('Lütfen tüm alanları doldurun.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(email)) {
+      alert('Lütfen geçerli bir e-posta adresi girin.');
+      return;
+    }
+
+    // Burada gerçek gönderim kodu olmalı
+    successMessage.style.display = 'block';
+    form.reset();
+
+    setTimeout(() => {
+      successMessage.style.display = 'none';
+    }, 5000);
+  });
+</script>
 
 </body>
 </html>
