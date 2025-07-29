@@ -187,7 +187,7 @@
 
     @media (max-width: 600px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2rem; /* küçültme azaltıldı */
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -230,7 +230,6 @@
     <h2>Yazılar</h2>
 
     <div class="posts">
-      <!-- Kendi yazın, devamı hazırlanıyor -->
       <div class="post-box" tabindex="0">
         <h3>Yeniden Muasır Medeniyetler Seviyesine Ulaşmak</h3>
         <div class="post-meta">12 Temmuz 2025</div>
@@ -245,11 +244,10 @@
     <div class="medium-posts posts">
       <div class="post-box" tabindex="0">
         <h3>The Current Atmosphere in Türkiye Politics</h3>
-        <div class="post-meta">29 Temmuz 2025</div>
+        <div class="post-meta">22 Temmuz 2025</div>
         <hr class="post-separator" />
-        <p class="post-summary">A current assessment of Turkish politics.</p>
-        <a href="https://medium.com/@ahmethaktaneker/the-current-atmosphere-in-turkiye-politics-48a8cb466265" 
-           class="read-more" target="_blank" rel="noopener noreferrer">Devamını Oku</a>
+        <p class="post-summary">An analysis of the current political climate in Turkey.</p>
+        <a href="https://medium.com/@ahmethaktaneker/the-current-atmosphere-in-turkiye-politics-48a8cb466265" class="read-more" target="_blank" rel="noopener noreferrer">Devamını Oku</a>
       </div>
     </div>
   </div>
@@ -267,7 +265,7 @@
       document.querySelectorAll('.post-box').forEach(box => {
         box.addEventListener('touchstart', e => {
           if (!e.target.classList.contains('read-more')) {
-            e.preventDefault();
+            // e.preventDefault();  // Kaldırıldı, böylece mobilde kaydırma engellenmez
             document.querySelectorAll('.post-box.active').forEach(activeBox => {
               if(activeBox !== box) activeBox.classList.remove('active');
             });
