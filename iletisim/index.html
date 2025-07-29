@@ -17,6 +17,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap" rel="stylesheet" />
 
 <style>
+  /* ... Mevcut tüm CSS aynen korunuyor ... */
+
   *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -158,6 +160,9 @@
     border-left: 5px solid #c62828;
     border-radius: 8px;
     transition: box-shadow 0.3s ease, transform 0.2s ease;
+    /* Mobilde dokununca kaydırma engelleme için eklenen kısım */
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
   }
   section.contact-form:hover {
     box-shadow: 0 8px 18px rgba(0,0,0,0.12);
@@ -195,6 +200,8 @@
     color: #1a1a1a;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     resize: vertical;
+    /* Dokunma sırasında sayfa kaydırmasını engellemek için */
+    touch-action: manipulation;
   }
   .contact-form input:focus,
   .contact-form textarea:focus {
@@ -402,5 +409,5 @@
   });
 </script>
 
-</body>
+</body>  
 </html>
