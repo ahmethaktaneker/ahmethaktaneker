@@ -167,6 +167,14 @@
       filter: drop-shadow(0 3px 5px rgba(0,0,0,0.4));
     }
 
+    .post-box a.read-more.disabled {
+      background-color: #ccc;
+      cursor: default;
+      pointer-events: none;
+      box-shadow: none;
+      color: #666;
+    }
+
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -179,7 +187,7 @@
 
     @media (max-width: 600px) {
       header h1 {
-        font-size: 2rem; /* küçültme azaltıldı */
+        font-size: 2rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -222,12 +230,26 @@
     <h2>Yazılar</h2>
 
     <div class="posts">
+      <!-- Kendi yazın, devamı hazırlanıyor -->
       <div class="post-box" tabindex="0">
         <h3>Yeniden Muasır Medeniyetler Seviyesine Ulaşmak</h3>
         <div class="post-meta">12 Temmuz 2025</div>
         <hr class="post-separator" />
-        <p class="post-summary">Anayasa krizleri ve FETÖ sonrası dönem üzerine bir analiz.</p>
-        <a href=".pdf" class="read-more" target="_blank" rel="noopener noreferrer">Devamını Oku</a>
+        <p class="post-summary"><em>Yazı şu anda hazırlanıyor. Yakında burada yer alacak.</em></p>
+        <a href="#" class="read-more disabled" onclick="return false;">Devamını Oku</a>
+      </div>
+    </div>
+
+    <!-- Medium Yazıları Bölümü -->
+    <h2>Medium Yazıları</h2>
+    <div class="medium-posts posts">
+      <div class="post-box" tabindex="0">
+        <h3>The Current Atmosphere in Türkiye Politics</h3>
+        <div class="post-meta">29 Temmuz 2025</div>
+        <hr class="post-separator" />
+        <p class="post-summary">A current assessment of Turkish politics.</p>
+        <a href="https://medium.com/@ahmethaktaneker/the-current-atmosphere-in-turkiye-politics-48a8cb466265" 
+           class="read-more" target="_blank" rel="noopener noreferrer">Devamını Oku</a>
       </div>
     </div>
   </div>
