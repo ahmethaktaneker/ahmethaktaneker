@@ -1,0 +1,20 @@
+GÜNCELLENMİŞ SİTE KAYNAK KODU
+
+ZIP içeriğini deponun köküne kopyalayın. package.json doğrudan depo kökünde olmalı.
+Mevcut .git klasörünüzü silmeyin. Eski görsellerinizi ve CNAME dosyanızı koruyun.
+
+Yerelde çalıştırmak için:
+npm ci
+npm run dev
+
+Kontrol için:
+npm run lint
+npm run build
+
+Bu proje Next.js kullanır. Bu haliyle GitHub Pages üzerinde doğrudan çalışmaz.
+Yayınlamak için GitHub deposunu Vercel'e bağlayın; Next.js ayarını kullanın.
+Mevcut GitHub Pages sayfalarını, Vercel yayını ve alan adı geçişi tamamlanana kadar koruyabilirsiniz.
+
+Örnek içerikler taslaktır; gerçek yazı ekleme açıklaması README.md içindedir.
+Orijinal favicon ve Apple ikonları korunmuştur.
+Kaynak kod kontrolleri geçmiştir; tarayıcıda görsel doğrulama henüz tamamlanmamıştır.

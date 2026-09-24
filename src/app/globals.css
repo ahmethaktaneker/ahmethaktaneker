@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+:root {
+  --color-background: #131313;
+  --color-surface: #1b1c1c;
+  --color-surface-high: #1f2020;
+  --color-surface-void: #0a0a0a;
+  --color-on-surface: #e4e2e1;
+  --color-on-surface-variant: #d1c5b4;
+  --color-outline: #9a8f80;
+  --color-outline-variant: #4e4639;
+  --color-primary: #e9c176;
+  --color-on-primary: #412d00;
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-surface-high: var(--color-surface-high);
+  --color-surface-void: var(--color-surface-void);
+  --color-on-surface: var(--color-on-surface);
+  --color-on-surface-variant: var(--color-on-surface-variant);
+  --color-outline: var(--color-outline);
+  --color-outline-variant: var(--color-outline-variant);
+  --color-primary: var(--color-primary);
+  --color-on-primary: var(--color-on-primary);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  /* Without this, the browser's scroll-anchoring heuristic nudges scrollY by
+     a few px the instant GSAP ScrollTrigger inserts the hero's pin-spacer on
+     mount, which reads as the page sliding down on its own right after load
+     and prematurely kicks the 3D sculpture's scroll-driven animation into
+     motion before any real user scroll. */
+  overflow-anchor: none;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-on-surface);
+}
+
+body.cursor-none,
+body.cursor-none * {
+  cursor: none !important;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.prose-essay > * + * {
+  margin-top: 1.5em;
+}
+
+.prose-essay h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-on-surface);
+  margin-top: 2.5em;
+}
+
+.prose-essay a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@keyframes ambient-drift-a {
+  0%,
+  100% {
+    transform: translate(-4%, -6%) scale(1);
+  }
+  50% {
+    transform: translate(6%, 5%) scale(1.16);
+  }
+}
+
+@keyframes ambient-drift-b {
+  0%,
+  100% {
+    transform: translate(6%, 4%) scale(1.1);
+  }
+  50% {
+    transform: translate(-6%, -8%) scale(1);
+  }
+}
+
+.ambient-blob-a {
+  animation: ambient-drift-a 36s ease-in-out infinite;
+}
+
+.ambient-blob-b {
+  animation: ambient-drift-b 44s ease-in-out infinite;
+}
+
+.bg-grain {
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Editorial redesign: type and scroll-linked geometry carry the identity. */
+:root { --color-background:#121412; --color-surface:#1a1d19; --color-surface-void:#0d100d; --color-on-surface:#eeeae1; --color-on-surface-variant:#bcbcaf; --color-primary:#cfb780; }
+html { scroll-behavior:smooth; scroll-padding-top:100px; }
+:focus-visible { outline:2px solid var(--color-primary); outline-offset:6px; }
+.skip-link { position:fixed; top:12px; left:12px; z-index:200; padding:12px 20px; background:var(--color-primary); color:#121412; transform:translateY(-200%); }
+.skip-link:focus { transform:translateY(0); }
+.eyebrow { font-size:10px; line-height:1.6; letter-spacing:.2em; text-transform:uppercase; color:var(--color-primary); }
+.text-link { display:inline-flex; align-items:center; gap:16px; padding:12px 0; font-size:13px; border-bottom:1px solid #cfb78060; transition:color .2s,gap .2s; }
+.text-link:hover { gap:24px; color:var(--color-primary); }
+.editorial-journey { --journey:0; height:155svh; position:relative; }
+.editorial-stage { height:calc(100svh - 78px); min-height:580px; position:sticky; top:78px; overflow:hidden; padding:clamp(28px,6vw,96px); display:flex; align-items:center; border-bottom:1px solid #cfb78030; }
+.hero-copy { position:relative; z-index:2; width:100%; transform:translateY(calc(var(--journey) * -38px)); }
+.hero-copy h1 { font-family:var(--font-display); font-size:clamp(64px,8vw,124px); line-height:1.06; letter-spacing:-.065em; margin:28px 0; max-width:900px; }
+em { font-weight:400; color:var(--color-primary); }
+.hero-description { color:var(--color-on-surface-variant); font-size:clamp(14px,1.2vw,17px); line-height:1.9; margin:0 0 22px; }
+.hero-bottom { position:absolute; bottom:26px; left:clamp(28px,6vw,96px); right:clamp(28px,6vw,96px); display:flex; justify-content:space-between; gap:20px; color:var(--color-on-surface-variant); font-size:10px; letter-spacing:.06em; }
+.editorial-orbit { position:absolute; width:clamp(340px,47vw,760px); aspect-ratio:1; right:-3%; top:50%; opacity:.7; transform:translateY(-50%) rotate(calc(-25deg + var(--journey) * 95deg)) scale(calc(1 - var(--journey) * .27)); }
+.editorial-orbit span { position:absolute; inset:0; border:1px solid #cfb78040; border-radius:50%; scale:calc(.4 + var(--journey) * .4) 1; }
+.orbit-core { position:absolute; inset:28%; border-radius:50%; background:radial-gradient(circle,#b49b6330,transparent 70%); }
+.journey-line { position:absolute; bottom:0; left:0; width:100%; height:2px; background:var(--color-primary); transform-origin:left; transform:scaleX(var(--journey)); }
+.editorial-section { width:min(1280px,100%); margin-inline:auto; padding:100px clamp(24px,6vw,80px); }
+.section-heading { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:56px; }
+.featured-essay { display:grid; grid-template-columns:1.25fr 1fr; gap:24px 60px; align-items:center; }
+.featured-essay h2,.empty-editorial h2 { font-family:var(--font-display); font-size:clamp(36px,4.2vw,64px); line-height:1.15; letter-spacing:-.035em; margin:24px 0; }
+.essay-description { color:var(--color-on-surface-variant); line-height:1.85; max-width:600px; font-size:15px; }
+.featured-essay .text-link { margin-top:24px; }
+.essay-art { position:relative; aspect-ratio:1; overflow:hidden; display:grid; place-items:center; border:1px solid #cfb78030; background:linear-gradient(140deg,#25291e,#101310); }
+.essay-art span { font:italic 130px var(--font-display); color:#cfb780; z-index:1; transition:transform .5s; }
+.essay-art i { position:absolute; width:80%; height:80%; border:1px solid #cfb78040; transform:rotate(30deg); }
+.essay-art i:nth-of-type(2) { transform:rotate(50deg); }.essay-art i:nth-of-type(3) { transform:rotate(70deg); }
+.featured-essay:hover .essay-art span { transform:scale(1.08); }
+.essay-meta { font-size:11px; color:var(--color-on-surface-variant); line-height:1.8; }
+.empty-editorial { display:grid; grid-template-columns:.7fr 1.3fr; gap:60px; align-items:center; padding-bottom:32px; }
+.empty-number { font:italic clamp(140px,20vw,280px) var(--font-display); line-height:1; color:#cfb78025; }
+.empty-editorial p { color:var(--color-on-surface-variant); line-height:1.8; max-width:420px; margin-bottom:20px; }
+.essay-row { border-top:1px solid #cfb78030; display:grid; grid-template-columns:42px 1fr 24px; align-items:start; gap:26px; padding:34px 0; transition:background .25s; }
+.essay-row:hover { background:#cfb78005; }.essay-row:hover h2,.essay-row:hover h3 { color:var(--color-primary); }
+.essay-row h2,.essay-row h3 { font:clamp(24px,2.7vw,36px)/1.3 var(--font-display); margin:12px 0; transition:color .25s; }
+.essay-index { color:var(--color-primary); font-size:11px; padding-top:5px; }.essay-tags { color:var(--color-primary); font-size:10px; margin-top:18px; }
+.about-strip { background:#1b2018; border-block:1px solid #cfb78020; }
+.about-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:80px; margin-top:40px; align-items:center; }
+.about-grid h2 { font:clamp(36px,4.7vw,66px)/1.18 var(--font-display); letter-spacing:-.035em; }
+.about-grid p { line-height:1.9; color:var(--color-on-surface-variant); font-size:16px; margin-bottom:22px; }
+.site-footer { background:var(--color-surface-void); }
+.footer-heading { display:flex; align-items:center; justify-content:space-between; gap:40px; margin:30px 0 70px; }.footer-heading>a { display:flex; align-items:center; gap:24px; font:clamp(40px,5vw,72px)/1.2 var(--font-display); letter-spacing:-.035em; }.footer-heading svg { width:clamp(30px,4vw,60px); height:auto; color:var(--color-primary); }.footer-heading p { font-size:13px; line-height:1.9; color:var(--color-on-surface-variant); }
+.footer-bottom { border-top:1px solid #cfb78030; padding-top:24px; display:flex; gap:28px; font-size:11px; color:var(--color-on-surface-variant); }.footer-bottom span { margin-right:auto; }
+.archive h1 { font:clamp(52px,7vw,94px)/1.08 var(--font-display); letter-spacing:-.05em; margin:26px 0; }.archive-intro { color:var(--color-on-surface-variant); line-height:1.8; max-width:480px; }.archive-rule { display:flex; justify-content:space-between; border-bottom:1px solid #cfb78050; padding-bottom:16px; margin-top:70px; font-size:11px; color:var(--color-primary); }.archive-empty { padding:64px 0; }.archive-empty h2 { font:32px var(--font-display); margin-bottom:16px; }.archive-empty p { color:var(--color-on-surface-variant); font-size:14px; }
+.prose-essay { overflow-wrap:anywhere; line-height:1.95; }.prose-essay h2 { line-height:1.4; }.prose-essay h3 { font:1.25em/1.5 var(--font-display); margin-top:2em; }.prose-essay ul { list-style:disc; padding-left:1.5em; }.prose-essay ol { list-style:decimal; padding-left:1.5em; }.prose-essay li+li { margin-top:.5em; }.prose-essay blockquote { border-left:2px solid var(--color-primary); padding-left:1.3em; font-style:italic; color:var(--color-on-surface-variant); }.prose-essay pre { overflow-x:auto; padding:20px; background:var(--color-surface); font-size:14px; }.prose-essay img { max-width:100%; height:auto; }.prose-essay hr { border-color:#cfb78040; margin-block:3em; }
+@media(max-width:767px) { .editorial-journey { height:125svh; }.editorial-stage { min-height:600px; }.editorial-orbit { right:-180px; opacity:.35; }.hero-copy h1 { font-size:clamp(58px,11vw,85px); }.hero-bottom>span { display:none; }.editorial-section { padding-block:64px; }.featured-essay { grid-template-columns:1fr; }.essay-art { aspect-ratio:1.5; }.empty-editorial { grid-template-columns:1fr; gap:0; }.empty-number { font-size:100px; }.about-grid { grid-template-columns:1fr; gap:28px; }.footer-heading { align-items:start; flex-direction:column; gap:24px; margin-bottom:50px; }.footer-bottom { flex-wrap:wrap; gap:20px; }.footer-bottom span { width:100%; }.essay-row { gap:14px; grid-template-columns:24px 1fr 20px; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; }.editorial-journey { height:auto; }.editorial-stage { position:relative; top:auto; min-height:650px; }.editorial-orbit,.hero-copy { transform:none; }.editorial-orbit { top:15%; }.journey-line { display:none; } }
+.reading-page { width:100%; background:var(--color-background); color:var(--color-on-surface); transition:background .2s,color .2s; }.reading-inner { max-width:760px; margin:auto; padding:48px 28px 100px; }.reading-toolbar { display:flex; align-items:center; justify-content:space-between; gap:24px; }.reading-toggle { display:flex; align-items:center; gap:8px; font-size:12px; cursor:pointer; min-height:44px; }.reading-progress { position:fixed; top:0; left:0; width:100%; height:3px; transform:scaleX(0); transform-origin:left; background:#cfb780; z-index:150; }.essay-heading { margin:70px 0 48px; border-bottom:1px solid #cfb78040; padding-bottom:32px; }.essay-heading h1 { font:clamp(36px,5vw,60px)/1.17 var(--font-display); letter-spacing:-.035em; margin:24px 0; }.essay-heading .essay-meta { margin-top:24px; }.essay-end { margin-top:64px; border-top:1px solid #cfb78040; padding-top:32px; display:flex; justify-content:space-between; align-items:center; }.reading-light { --color-background:#f2eee5; --color-on-surface:#272a24; --color-on-surface-variant:#5b5b51; --color-primary:#786031; --color-surface:#e7e1d5; }
