@@ -10,6 +10,10 @@ ZIP dosyasını değil, içindeki dosya ve klasörleri `ahmethaktaneker/ahmethak
 
 `CNAME` mevcut alan adını korur: `www.ahmethaktaneker.com`. GitHub Pages, ana dalın kökünden servis edecek şekilde ayarlanmış olmalı. `.nojekyll` dosyasını da ekle. Önceki build workflow'un varsa bu düz HTML dosyalarını eski Next çıktısıyla üzerine yazmamalı; kökten yayın veya kökü yayınlayan workflow kullan.
 
+## Tema ve görünüm
+
+Site varsayılan olarak koyu temada açılır. Sağ üstteki güneş/ay düğmesiyle açık ve koyu tema arasında geçiş yapılır. Tercih tarayıcıda saklanır ve diğer sayfalarda korunur. Tarayıcı yerel depolamayı engelliyorsa düğme yine çalışır ancak tercih sonraki sayfaya taşınmayabilir. Logo ve monogramlar AHE olarak güncellenmiştir.
+
 ## Fotoğrafı ekle
 
 Fotoğrafını `assets/portrait.jpg` adıyla koy. Gerçek JPEG dosyası olmalı; yalnızca PNG dosyasının uzantısını değiştirme.
@@ -27,6 +31,7 @@ Fotoğrafını `assets/portrait.jpg` adıyla koy. Gerçek JPEG dosyası olmalı;
 - Hakkımda: `hakkimda/index.html`
 - İletişim: `iletisim/index.html`
 - Tasarım: `assets/site.css`
+- Tema: `assets/theme.js`
 - Kaydırma ve fotoğraf davranışı: `assets/site.js`
 
 Arşivdeki gerçek Medium yazısı korunmuştur. Henüz yayımlanmayan metinler yayımlanmış gibi eklenmemiştir. Yeni dış bağlantılı yazı eklerken arşivdeki `article-row` bağlantısını kopyala; başlığı, açıklamayı, bağlantıyı ve tarihi değiştir. Üstteki yazı sayısını güncelle. Sitede yayımlayacağın uzun yazılar için `YAZI-SABLONU.txt` dosyasındaki HTML'i kullanabilirsin.
